@@ -18,20 +18,22 @@ function divide(a, b) {
 }
 
 function operate(op, a, b) {
+    let result;
     switch (op) {
         case "+":
-            add(a, b);
+            result = add(a, b);
             break;
         case "-":
-            subtract(a, b);
+            result = subtract(a, b);
             break;
         case "*":
-            multiply(a, b);
+            result = multiply(a, b);
             break;
         case "/":
-            divide(a, b);
+            result = divide(a, b);
             break;
     }
+    return result;
 }
 
 let num1, operator, num2;

@@ -16,3 +16,22 @@ function divide(a, b) {
     }
     return a / b;
 }
+
+function operate(op, a, b) {
+    switch (op) {
+        case "+":
+            add(a, b);
+            break;
+        case "-":
+            subtract(a, b);
+            break;
+        case "*":
+            multiply(a, b);
+            break;
+        case "/":
+            divide(a, b);
+            break;
+    }
+}
+
+let num1, operator, num2;

@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    border-radius: 10px;
+    background-color: pink;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.display-screen {
+    height: 48px;
+    text-align: right;
+    background-color: lightgray;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    width: 64px;
+    height: 36px;
+    font-size: 22px;
+}
+
+.logo {
+    width: 64px;
+    height: 36px;
+    background-color: antiquewhite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

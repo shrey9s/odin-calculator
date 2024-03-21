@@ -36,4 +36,28 @@ function operate(op, a, b) {
     return result;
 }
 
+function displayValue(val) {
+    const textNode = document.createTextNode(val + " ");
+    display.appendChild(textNode);
+}
+
 let num1, operator, num2;
+const display = document.querySelector(".display-screen");
+
+const valueButtons = document.querySelectorAll(".value");
+valueButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        let val = btn.textContent;
+        if (val === "(-)") val = "-";
+        displayValue(val);
+    });
+});
+
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener("click", () => {
+    display.textContent = "";
+});
+
+
+
+

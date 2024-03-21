@@ -53,10 +53,7 @@ valueButtons.forEach((btn) => {
     });
 });
 
-const clearBtn = document.querySelector(".clear-btn");
-clearBtn.addEventListener("click", () => {
-    display.textContent = "";
-});
+
 
 
 

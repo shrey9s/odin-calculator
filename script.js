@@ -18,6 +18,8 @@ function divide(a, b) {
 }
 
 function operate(op, a, b) {
+    if (a === ".") a = 0;
+    if (b === ".") b = 0;
     a = +a;
     b = +b;
     let result;
@@ -73,7 +75,7 @@ function processInput(input) {
     }
 }
 // If lastValue = "-" but this refers to the negative sign (not minus):
-// The negative sign is the first part of num1 and num2
+// The negative sign is the very first part of num1 and num2
 // If user has input the negative sign for num1, then there should be NO previous sibling (i.e., "-" is the first input in display)
 // If user has input the negative sign for num2, then there should be a previous sibling AND that previous sibling should be an operator (not a number)
 
@@ -93,7 +95,10 @@ valueButtons.forEach((btn) => {
 const equalsBtn = document.querySelector(".equals-btn");
 equalsBtn.addEventListener("click", () => {
     display.textContent = "";
-    const answer = (operate(operator, num1, num2)).toFixed(4);
+    let answer = operate(operator, num1, num2);
+    if (Number(answer) === answer && answer % 1 !== 0) { // answer is floating point number
+        answer = +(answer.toFixed(4)); // round to 4 d.p. (if more than 4 d.p.)
+    }
     displayValue(answer);
 });
 

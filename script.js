@@ -74,7 +74,7 @@ function processInput(input) {
 // If user has input the negative sign for num1, then there should be NO previous sibling (i.e., "-" is the first input in display)
 // If user has input the negative sign for num2, then there should be a previous sibling AND that previous sibling should be an operator (not a number)
 
-let num1, operator, num2;
+let num1, num2, operator;
 const opArr = ["+", "-", "×", "÷"];
 const display = document.querySelector(".display-screen");
 
@@ -90,6 +90,7 @@ valueButtons.forEach((btn) => {
 const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", () => {
     display.textContent = "";
+    num1 = num2 = operator = undefined;
 });
 
 /*const deleteBtn = document.querySelector(".delete-btn");

@@ -91,12 +91,19 @@ function getResult(eqn) {
         }
         console.log("check 5 works");
     }
-    return res;
+    return res; // number or string
+}
+
+function deleteValue() {
+    display.removeChild(display.lastChild);
 }
 
 let num1, num2, operator, result;
 const opArr = ["+", "-", "×", "÷"];
 const display = document.querySelector(".display-screen");
+
+const deleteBtn = document.querySelector(".delete-btn");
+deleteBtn.addEventListener("click", deleteValue);
 
 const valueButtons = document.querySelectorAll(".value");
 valueButtons.forEach((btn) => {
@@ -114,6 +121,7 @@ valueButtons.forEach((btn) => {
         if (!(display.textContent).includes("ERROR")) { // prevents user from inputting any values if display is showing error (they have to click AC)
             displayValue(btnValue);
         }
+        deleteBtn.addEventListener("click", deleteValue); // re-enable DEL button (in case user clicks another value after clicking =, instead of AC)
     });
 });
 
@@ -124,6 +132,7 @@ equalsBtn.addEventListener("click", () => {
         result = getResult(equation); // sets num1, num2, operator and returns the result
         display.textContent = "";   
         displayValue(result);
+        deleteBtn.removeEventListener("click", deleteValue); // disable DEL button (user has to click AC to clear)
     }
 });
 
@@ -131,12 +140,10 @@ const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", () => {
     display.textContent = "";
     num1 = num2 = operator = result = undefined;
+    deleteBtn.addEventListener("click", deleteValue); // re-enable DEL button
 });
 
-/*const deleteBtn = document.querySelector(".delete-btn");
-deleteBtn.addEventListener("click", () => {
-    display.removeChild(display.lastChild);
-});*/
+
 
 
 

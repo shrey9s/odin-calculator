@@ -111,7 +111,7 @@ valueButtons.forEach((btn) => {
         const displayContent = display.textContent;
         if (equalsClicked && !displayContent.includes("ERROR")) {
             if (!opArr.includes(btnValue)) { // Number/(-)/(.)
-                resetCalc() 
+                resetCalc();
             } else { // Operator
                 equalsClicked = false;
                 deleteBtn.addEventListener("click", deleteValue);
@@ -120,10 +120,8 @@ valueButtons.forEach((btn) => {
         /*
             If user clicks a NUMBER/(-)/(.) directly after clicking = (instead of AC first)
                 -> resetCalc() (same as clicking AC but starting with btnValue in display)
-
             If user clicks an OPERATOR directly after clicking = 
                 -> only reset equalsClicked to false and re-enable DEL button (not reset everything)
-            
             But ONLY if the result after clicking = is NOT an ERROR message
                 -> if ERROR, all value buttons + DEL button are disabled and user has to click AC to reset calculator
         */
@@ -147,7 +145,7 @@ equalsBtn.addEventListener("click", () => {
     if (display.textContent !== "") { // if user clicks "=" w/o inputting anything, do nothing
         equalsClicked = true;
         const equation = display.textContent;
-        if (!equation.includes("ERROR")) {result = getResult(equation);} // if user clicks = again after an ERROR
+        if (!equation.includes("ERROR")) { result = getResult(equation); } // if user clicks = again after an ERROR
         display.textContent = "";
         displayValue(result);
         deleteBtn.removeEventListener("click", deleteValue); // disable DEL button (user has to click AC to clear)
